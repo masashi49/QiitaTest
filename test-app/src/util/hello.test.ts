@@ -31,3 +31,4 @@ test('成功', async () => {
   const data = await GetData.getMyProfile();
   expect(data).toEqual(resData);
 });
+
