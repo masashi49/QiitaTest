@@ -18,11 +18,13 @@ function getTestApi(number: number = 200) {
 }
 
 test('失敗', async () => {
+  expect.assertions(2);
   getTestApi(300);
   try {
     const data = await GetData.getMyProfile();
   } catch (error) {
     expect(error).toBe('エラーです');
+    expect(error).not.toBe('違います');
   }
 });
 
@@ -31,4 +33,3 @@ test('成功', async () => {
   const data = await GetData.getMyProfile();
   expect(data).toEqual(resData);
 });
-
